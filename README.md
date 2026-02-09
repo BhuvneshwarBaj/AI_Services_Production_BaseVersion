@@ -2,6 +2,8 @@
 
 A modular, UI-based AI inference platform for **Data Quality Analysis**, **Outlier Detection**, **Efficient Lebelling(Coming soon)** and **Image Deblurring(Coming soon)** built for deployment in **HLRS infrastructure** environment, developed by Aalen University and fundated by KI-Allianz.
 
+![alt text](image-1.png)
+
 ---
 
 ## Features
@@ -80,51 +82,34 @@ AI_Services_Production_v1/
 
 ---
 
-## Local Development Setup
-
-```bash
+## Local Docker Development Setup(Powershell) for Window & Linux
+# 1. Clone repo
 git clone <repo-url>
 cd AI_Services_Production_v1
-python3 -m venv venv
-source venv/bin/activate
+# 2. Check Python version (should be 3.11+)
+python --version      # For Window
+python3 --version     # For Linux
+# 3. Create & activate virtualenv
+# For Window
+py -3.11 -m venv venv   
+.\venv\bin\activate     
+# For Linux
+python3 -m venv venv     
+source venv/bin/activate 
+# 4. Install dependencies (Window & Linux)
+pip install --upgrade pip
 pip install -r requirements.txt
-export FLASK_APP=src/aiservices/app_factory.py
-flask run
-```
 
-View the UI at:
+### Build & run docker stack (Window & Linux)
+docker compose down         # stop/remove old containers if any
+docker compose build        # build ai-services + efficient-labelling
+docker compose up -d        # start in background
+docker compose logs -f      # follow logs from both services
 
-```
-http://localhost:5000
-```
-
----
-
-## Docker Deployment (Recommended)
-
-### Build image
-```bash
-docker build -t ai-services .
-```
-
-### Run
-```bash
-docker run -p 8000:8000 ai-services
-```
-
-View the UI at:
+View the Main UI at:
 
 ```
 http://localhost:8000
-```
-
----
-
-## Docker Compose Deployment
-
-```bash
-
-docker-compose up --build
 ```
 
 ---

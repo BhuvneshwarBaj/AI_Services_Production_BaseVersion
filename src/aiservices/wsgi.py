@@ -1,8 +1,4 @@
 # src/aiservices/wsgi.py
-# from .app_factory import create_app
-# app = create_app()
-
-# src/aiservices/wsgi.py
 from .app_factory import create_app
 from werkzeug.middleware.proxy_fix import ProxyFix
 

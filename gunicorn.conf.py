@@ -1,11 +1,4 @@
 #Its a gunicorn config file
-# bind = "0.0.0.0:8000"
-# workers = 4
-# threads = 4
-# timeout = 120
-# accesslog = "-"
-# errorlog = "-"
-
 import multiprocessing
 
 # Bind
@@ -29,7 +22,7 @@ max_requests_jitter = 100
 accesslog = "-"
 errorlog = "-"
 
-# Preload app for faster start & shared memory (optional)
+# Preload app for faster start & shared memory 
 preload_app = True
 
 # Worker class (keep sync for CPU-bound ML)
