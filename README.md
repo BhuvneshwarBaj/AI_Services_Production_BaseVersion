@@ -1,6 +1,6 @@
-# AI Services Production Platform (AI_Services_Production_v1)
+# AI Services Production Platform (AI_Services_Production_BaseVersion)
 
-A modular, UI-based AI inference platform for **Data Quality Analysis**, **Outlier Detection**, **Efficient Lebelling(Coming soon)** and **Image Deblurring(Coming soon)** built for deployment in **HLRS infrastructure** environment, developed by Aalen University and fundated by KI-Allianz.
+A unified AI platform offering **Data Quality Analysis**, **Outlier Detection**, **Efficient Lebelling** and **Image Deblurring** AI services and built for deployment in **HLRS infrastructure** environment, developed by Aalen University and funded by KI-Allianz.
 
 ![alt text](image-1.png)
 
@@ -19,66 +19,6 @@ A modular, UI-based AI inference platform for **Data Quality Analysis**, **Outli
 - Integration with **Piveau Hub** for dataset publishing.
 - Fully containerized using **Docker and docker-compose**
 - Easy to extend with more AI services
-
----
-
-## Target Repository Structure
-
-```
-AI_Services_Production_v1/
-│
-├── artifacts/                     # Model files for Outlier Detection
-│   ├── feature_columns.json
-│   ├── scaler_XGBOD.joblib
-│   ├── xgbod_detector.joblib
-│   └── xgbod_threshold.joblib
-│
-├── output/                        # Inference output files generated at runtime
-│
-├── src/
-│   └── aiservices/
-│       ├── __init__.py
-│       ├── app_factory.py         # Flask app
-│       ├── config.py              # Config settings
-│       ├── routes.py              # (Optional) API routes
-│       ├── wsgi.py                # Gunicorn entrypoint
-│       │
-│       ├── ui/                    # UI Layer
-│       │   ├── bp.py              # Blueprint routes
-│       │   ├── static/images/     # UI images
-│       │   └── templates/
-│       │       ├── base.html
-│       │       ├── index.html
-│       │       └── services/
-│       │           ├── data_quality.html
-│       │           ├── outlier.html
-│       │           ├── labelling.html
-│       │           └── deblurring.html
-│       │
-│       └── services/              # Backend logic for each AI module
-│           ├── data_quality/
-│           │   ├── feature_type_inference.py
-│           │   ├── data_imputation.py
-│           │   ├── anomaly_detection.py
-│           │   └── personalized_detection.py
-│           │
-│           ├── outlier_detection/
-│           |   ├── xgbod_runtime.py
-│           |   ├── outlier_detection.py
-│           |   └── __init__.py
-|           |
-|           ├── Efficient Labelling/
-│           |  
-|           |
-|           └── Image Deblurring/  
-|
-├── .env                           # Env variables for runtime & Piveau (optional)
-├── requirements.txt               # Package dependencies
-├── Dockerfile                     # Build instructions
-├── docker-compose.yml             # Multi-service orchestration
-├── gunicorn.conf.py               # Server configuration
-└── README.md                      # Documentation
-```
 
 ---
 
@@ -171,8 +111,10 @@ HUB_STORE_BUCKET=ai-results
 
 ## API
 
-For DataQuality API:http://localhost:8000/services/data-quality
+For DataQuality API:http://localhost:8503
 For Outlier Detection API:http://localhost:8000/services/outlier
+For Image Deblurring API:http://localhost:8502
+For Efficient Labelling API:http://localhost:8501
 
 ---
 
